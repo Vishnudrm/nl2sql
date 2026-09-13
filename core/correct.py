@@ -22,6 +22,9 @@ Corrected question (return ONLY the corrected text, nothing else, no explanation
             "think": False
         }
     )
-    corrected = response.json()["response"].strip()
+    data = response.json()
+    if "response" not in data:
+        raise RuntimeError(f"Ollama returned unexpected response: {data}")
+    corrected = data["response"].strip()
     corrected = corrected.strip('"').strip("'")
     return corrected

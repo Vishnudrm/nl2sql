@@ -1,0 +1,25 @@
+[project]
+name = "nl2sql"
+version = "0.1.0"
+description = "Ask your CSV/Excel data questions in plain English, powered by a local LLM."
+requires-python = ">=3.10"
+dependencies = [
+    "duckdb>=1.5.4",
+    "pandas>=2.0",
+    "requests>=2.30",
+    "rich>=13.0",
+    "sqlglot>=30.0",
+    "typer>=0.15",
+    "openpyxl>=3.1",
+]
+
+[project.scripts]
+nl2sql = "cli:app"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["cli"]
+packages = ["core"]
